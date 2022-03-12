@@ -12,21 +12,22 @@ class ContaCorrente{
 
     sacar(valor){
         //function or metodo
-        let valorSacado = 200;
+        // let valorSacado = 200;
         
         if(this._saldo >= valor){
 
-            //this.saldo   thisObj.saldo
-
             this._saldo -= valor;
+            
+            return valor;
         }
     }
 
         depositar(valor){
 
-            if(valor > 0){
-                this._saldo += valor;
+            if(valor <= 0){
+                return; // early return
             }
+            this._saldo += valor;
         }
 
     
@@ -44,14 +45,17 @@ cliente2.cpf = 033434343433
 
 
 const contaCorrenteSalim = new ContaCorrente();
-// contaCorrenteSalim.#saldo = 0;
+
 contaCorrenteSalim.agencia = 1001;
 
-console.log(contaCorrenteSalim.saldo)
-contaCorrenteSalim.depositar(323);
-console.log(contaCorrenteSalim.saldo)
+
+contaCorrenteSalim.depositar(35);
+console.log(contaCorrenteSalim._saldo)
 // obj.metodo();
-// contaCorrenteSalim.sacar(30)
 
+const valorSacado = contaCorrenteSalim.sacar(30);
+console.log(`foi sacado ${valorSacado}`);
 
-console.log(contaCorrenteSalim.saldo)
+console.log(contaCorrenteSalim._saldo)
+
+console.log(contaCorrenteSalim)
